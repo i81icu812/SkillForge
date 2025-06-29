@@ -1,0 +1,31 @@
+name: Deploy to DigitalOcean
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Terraform
+        uses: hashicorp/terraform@latest
+        with:
+          terraform-init: true
+          terraform-plan: true
+          terraform-output: true
+
+      - name: Apply Terraform
+        uses: hashicorp/terraform@latest
+        with:
+          terraform-plan: true
+          terraform-provider: true
+          terraform-var-token: ${{ secrets.DIGITALOCEAN_TOKEN }}
+          terraform-var-name: my-container
+          terraform-var-image: ubuntu-2204-x64-stable
+          terraform-var-region: us-central1
+          terraform-var-size: s-1vcpu
+          terraform-var-key_pair: my-key-pair
+          terraform-var-provisioner: shell
+          terraform-var-script: install_packages.sh
