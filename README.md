@@ -1,5 +1,5 @@
 # SkillForge
-A matrix of developers, showcasing their expertise and contributions.
+A matrix of developers, showcasing their expertise and contributions. Checkout a branch!
 
 ## Explanation of Current Contents:
 
