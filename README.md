@@ -1,4 +1,4 @@
-# SkillForge
+# SkillsForge
 A matrix of developers, showcasing their expertise and contributions. Checkout a branch!
 
 ## Plan for Current Contents:
